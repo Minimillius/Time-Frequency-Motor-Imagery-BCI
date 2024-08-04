@@ -1,8 +1,5 @@
 # Time-Frequency_MotorImagery_BCI
 This MATLAB project implements an EEG-based Brain-Computer Interface (BCI) system using time-frequency analysis with the pseudo Wigner-Ville distribution to classify motor imagery tasks through energy distribution features.
-Certainly! Below is a comprehensive README file for the MATLAB script provided, suitable for inclusion in a GitHub repository. This README assumes that the script is part of a project involving EEG signal processing and classification.
-
----
 
 # EEG Signal Processing and Classification
 
