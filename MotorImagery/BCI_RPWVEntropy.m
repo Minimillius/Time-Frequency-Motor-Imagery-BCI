@@ -3,28 +3,31 @@ clear
 close all
 
 % Add path for the Time-Frequency Toolbox (TFTB)
-addpath("/Users/hamid/Documents/MATLAB/MotorImagery/Entropy/tftb-0.2/mfiles");
+addpath("/tftb-0.2/mfiles");
 
 % Add path for the EEGLAB toolbox
-addpath '/Users/hamid/Downloads/eeglab2024.0';
+addpath '/eeglab2024.0';
 
 % Uncomment the appropriate filename line to select the EEG data file and parameters
 % Each line contains the file path and parameters specific to the subject/session
-% filename= ['/Users/hamid/Documents/MATLAB/MotorExe/BCICIV_2b_gdf 2/B0101T.gdf']; fl = 9; fh = 14; order = 4; ti = 3.5; latency = 0.6; cspn = 1; % Classification Accuracy: 95.83%
-% filename= ['/Users/hamid/Documents/MATLAB/MotorExe/BCICIV_2b_gdf 2/B0201T.gdf']; fl = 4; fh = 12; order = 4; ti = 2; latency = .2; cspn = 1; % Classification Accuracy: 68.33%
-% filename= ['/Users/hamid/Documents/MATLAB/MotorExe/BCICIV_2b_gdf 2/B0301T.gdf']; fl = 9; fh = 20; order = 4; ti = 3.5; latency = 0.6; cspn = 1; % Classification Accuracy: 68.33%
-% filename= ['/Users/hamid/Documents/MATLAB/MotorExe/BCICIV_2b_gdf 2/B0401T.gdf']; fl = 9; fh = 24; order = 4; ti = 2; latency = 0.6; cspn = 1; % Classification Accuracy: 93.33%
-% filename= ['/Users/hamid/Documents/MATLAB/MotorExe/BCICIV_2b_gdf 2/B0501T.gdf']; fl = 11; fh = 33; order = 4; ti = 2.5; latency = 0.6; cspn = 1; % Classification Accuracy: 75.83%
-% filename= ['/Users/hamid/Documents/MATLAB/MotorExe/BCICIV_2b_gdf 2/B0601T.gdf']; fl = 9; fh = 15; order = 4; ti = 4; latency = 0.4; cspn = 1; % Classification Accuracy: 84.17%
-% filename= ['/Users/hamid/Documents/MATLAB/MotorExe/BCICIV_2b_gdf 2/B0701T.gdf']; fl = 12; fh = 16; order = 4; ti = 4; latency = 0.6; cspn = 1; % Classification Accuracy: 78.33%
-% filename= ['/Users/hamid/Documents/MATLAB/MotorExe/BCICIV_2b_gdf 2/B0801T.gdf']; fl = 6; fh = 12; order = 4; ti = 4; latency = 0.2; cspn = 1; % Classification Accuracy: 65.00%
-filename= ['/Users/hamid/Documents/MATLAB/MotorExe/BCICIV_2b_gdf 2/B0901T.gdf']; fl = 12; fh = 16; order = 4; ti = 4.1; latency = 0.5; cspn = 1; % Classification Accuracy: 80.00%
+% filename= ['/BCICIV_2b_gdf 2/B0101T.gdf']; fl = 9; fh = 14; order = 4; ti = 3.5; latency = 0.6; cspn = 1; % Classification Accuracy: 95.83%
+% filename= ['/BCICIV_2b_gdf 2/B0201T.gdf']; fl = 4; fh = 12; order = 4; ti = 2; latency = .2; cspn = 1; % Classification Accuracy: 68.33%
+% filename= ['/BCICIV_2b_gdf 2/B0301T.gdf']; fl = 9; fh = 20; order = 4; ti = 3.5; latency = 0.6; cspn = 1; % Classification Accuracy: 68.33%
+% filename= ['/BCICIV_2b_gdf 2/B0401T.gdf']; fl = 9; fh = 24; order = 4; ti = 2; latency = 0.6; cspn = 1; % Classification Accuracy: 93.33%
+% filename= ['/BCICIV_2b_gdf 2/B0501T.gdf']; fl = 11; fh = 33; order = 4; ti = 2.5; latency = 0.6; cspn = 1; % Classification Accuracy: 75.83%
+% filename= ['/BCICIV_2b_gdf 2/B0601T.gdf']; fl = 9; fh = 15; order = 4; ti = 4; latency = 0.4; cspn = 1; % Classification Accuracy: 84.17%
+% filename= ['/BCICIV_2b_gdf 2/B0701T.gdf']; fl = 12; fh = 16; order = 4; ti = 4; latency = 0.6; cspn = 1; % Classification Accuracy: 78.33%
+% filename= ['/BCICIV_2b_gdf 2/B0801T.gdf']; fl = 6; fh = 12; order = 4; ti = 4; latency = 0.2; cspn = 1; % Classification Accuracy: 65.00%
+filename= ['/BCICIV_2b_gdf 2/B0901T.gdf']; fl = 12; fh = 16; order = 4; ti = 4.1; latency = 0.5; cspn = 1; % Classification Accuracy: 80.00%
 
 [s,h] = sload(filename); % Load the EEG data using the Biosig library
 
 %% Load EEG Data
-load("/Users/hamid/Documents/MATLAB/MotorImagery/emptyEEG.mat") % Load an empty EEG structure
+load("/emptyEEG.mat") % Load an empty EEG structure
 s = s(:,1:3); % Select the first three channels
+
+% Normalize the signal (z-score normalization)
+s = (s - mean(s)) ./ std(s);
 
 % Sampling rate and epoch duration in samples
 fs = h.SampleRate;
