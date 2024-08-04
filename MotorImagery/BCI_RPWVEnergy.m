@@ -3,13 +3,13 @@ clear
 close all
 
 % Add path for required toolbox for Time-Frequency Toolbox (TFTB)
-addpath("/Users/hamid/Documents/MATLAB/MotorImagery/Entropy/tftb-0.2/mfiles");
+addpath("/tftb-0.2/mfiles");
 
 % Add path for EEGLAB toolbox
 addpath '/Users/hamid/Downloads/eeglab2024.0'; 
 
 % Define parameters and load EEG data
-filename= ['/Users/hamid/Documents/MATLAB/MotorExe/BCICIV_2b_gdf 2/B0101T.gdf']; % File path
+filename= ['/BCICIV_2b_gdf 2/B0101T.gdf']; % File path
 fl = 9; fh = 14; % Frequency range for bandpass filter
 order = 4; % Order of the Butterworth filter
 ti = 3.5; % Time interval for epoch duration in seconds
