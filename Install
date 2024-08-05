@@ -105,7 +105,7 @@ To ensure that MATLAB can access the necessary scripts and functions, you need t
 
 2. **Modify Script File Paths:**
 
-   - Open the main script file (e.g., `eeg_processing.m`) and update the `filename` variable to point to your EEG data file. Ensure the file paths reflect the location of your data on your local machine.
+   - Open the main script file (e.g., `BCI_RPWVEnergy.m`) and update the `filename` variable to point to your EEG data file. Ensure the file paths reflect the location of your data on your local machine.
 
 ## Step 6: Run the Project
 
@@ -118,7 +118,12 @@ To ensure that MATLAB can access the necessary scripts and functions, you need t
    - Execute the main script file to start the EEG signal processing and classification:
 
    ```matlab
-   run('eeg_processing.m');
+   run('BCI_RPWVEnergy.m');
+   ```
+   or
+
+   ```matlab
+   run('BCI_RPWVEntropy.m');
    ```
 
 3. **Check Results:**
