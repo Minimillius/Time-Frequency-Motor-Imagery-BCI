@@ -130,7 +130,7 @@ Follow these steps to use the code:
 
 To successfully run the code, ensure the following dependencies are installed:
 
-- MATLAB (R2024 or later recommended)
+- MATLAB (R2024 recommended)
 - [Biosig Toolbox](https://sourceforge.net/projects/biosig/)
 - [EEGLAB Toolbox](https://sccn.ucsd.edu/eeglab/)
 - [Time-Frequency Toolbox (TFTB)](https://tftb.nongnu.org/)
