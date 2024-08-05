@@ -1,7 +1,3 @@
-Here’s an updated README for the **Time-Frequency-MotorImagery-BCI** repository, with detailed installation and usage instructions:
-
----
-
 # Time-Frequency-MotorImagery-BCI
 
 This MATLAB project implements an EEG-based Brain-Computer Interface (BCI) system using time-frequency analysis with the pseudo Wigner-Ville distribution to classify motor imagery tasks through energy distribution features.
@@ -148,7 +144,3 @@ The script calculates and displays the classification accuracy for each fold in 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-This README provides a comprehensive overview of the project, installation steps, and usage instructions to help users get started quickly. If you have any further questions or need additional details, feel free to ask!
