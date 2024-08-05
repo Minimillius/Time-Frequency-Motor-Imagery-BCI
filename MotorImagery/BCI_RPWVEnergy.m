@@ -6,7 +6,7 @@ close all
 addpath("/tftb-0.2/mfiles");
 
 % Add path for EEGLAB toolbox
-addpath '/Users/hamid/Downloads/eeglab2024.0'; 
+addpath '/eeglab2024.0'; 
 
 % Define parameters and load EEG data
 filename= ['/BCICIV_2b_gdf 2/B0101T.gdf']; % File path
@@ -20,7 +20,7 @@ cspn = 1; % Number of Common Spatial Patterns
 [s,h] = sload(filename); % Load EEG data using biosig library
 
 % Load empty EEG structure for further use
-load("/Users/hamid/Documents/MATLAB/MotorImagery/emptyEEG.mat")
+load("/emptyEEG.mat")
 
 % Select the first three channels of the signal
 s = s(:,1:3);
