@@ -73,48 +73,48 @@ CSP is a powerful method for feature extraction in BCI applications. It is used 
 - **Mathematical Formulation:**
 
   1. **Compute Covariance Matrices:** For each class, compute the average covariance matrix:
-     \[
-     R_i = \frac{1}{N_i} \sum_{n=1}^{N_i} \frac{x_n x_n^T}{\text{trace}(x_n x_n^T)}
-     \]
-     where \( x_n \) is the EEG data matrix for the \( n \)-th trial, \( N_i \) is the number of trials for class \( i \), and \( i \) indicates each class.
+     ```
+     R_i = (1/N_i) * sum(x_n * x_n^T) / trace(x_n * x_n^T)
+     ```
+     where `x_n` is the EEG data matrix for the `n`-th trial, `N_i` is the number of trials for class `i`, and `i` indicates each class.
 
   2. **Composite Covariance Matrix:** Calculate the composite covariance matrix as the sum of covariance matrices from both classes:
-     \[
+     ```
      R_c = R_1 + R_2
-     \]
+     ```
 
-  3. **Whitening Transformation:** Use the eigenvalue decomposition of \( R_c \) to whiten the data:
-     \[
-     R_c = U \Lambda U^T
-     \]
-     The whitening matrix is \( P = \Lambda^{-\frac{1}{2}} U^T \).
+  3. **Whitening Transformation:** Use the eigenvalue decomposition of `R_c` to whiten the data:
+     ```
+     R_c = U * Lambda * U^T
+     ```
+     The whitening matrix is `P = Lambda^(-1/2) * U^T`.
 
   4. **Whitened Covariance Matrices:** Transform the covariance matrices using the whitening transformation:
-     \[
-     \tilde{R}_i = P R_i P^T
-     \]
+     ```
+     ~R_i = P * R_i * P^T
+     ```
 
   5. **Generalized Eigenvalue Decomposition:** Perform eigenvalue decomposition on the whitened matrices:
-     \[
-     \tilde{R}_1 v_j = \lambda_j \tilde{R}_2 v_j
-     \]
-     where \( \lambda_j \) are the eigenvalues and \( v_j \) are the eigenvectors.
+     ```
+     ~R_1 * v_j = lambda_j * ~R_2 * v_j
+     ```
+     where `lambda_j` are the eigenvalues and `v_j` are the eigenvectors.
 
   6. **Spatial Filters:** Select the eigenvectors corresponding to the largest and smallest eigenvalues to form the spatial filters:
-     \[
-     W = \left[ v_1, v_2, \ldots, v_m, v_{N-m+1}, \ldots, v_N \right]
-     \]
-     where \( m \) is the number of filters to select.
+     ```
+     W = [v_1, v_2, ..., v_m, v_(N-m+1), ..., v_N]
+     ```
+     where `m` is the number of filters to select.
 
 ### Pseudo Wigner-Ville Distribution (PWVD)
 
 PWVD provides a detailed time-frequency representation of a signal:
 
 - **Formula:** The PWVD is defined as:
-  \[
-  PWVD(t, f) = \int_{-\infty}^{\infty} x(t+\tau/2) x^*(t-\tau/2) e^{-j2\pi f \tau} d\tau
-  \]
-  where \(x(t)\) is the signal, \(\tau\) is the time lag, and \(f\) is the frequency.
+  ```
+  PWVD(t, f) = Integral{x(t+tau/2) * x*(t-tau/2) * exp(-j2pi f tau) dtau}
+  ```
+  where `x(t)` is the signal, `tau` is the time lag, and `f` is the frequency.
 
 - **Advantages:** Offers high time and frequency resolution, making it suitable for capturing the dynamics of EEG signals during motor imagery tasks. It provides insights into the temporal evolution of frequency components, crucial for understanding brain activities associated with motor imagery.
 
@@ -123,16 +123,16 @@ PWVD provides a detailed time-frequency representation of a signal:
 Entropy is a measure of uncertainty or randomness in a system. In this project, entropy is used to capture the complexity of energy distribution:
 
 - **Shannon Entropy:** 
-  \[
-  H(X) = -\sum_{i} p(x_i) \log_2 p(x_i)
-  \]
-  where \(p(x_i)\) is the probability of occurrence of each state. Shannon entropy quantifies the average information content of a signal.
+  ```
+  H(X) = -sum(p(x_i) * log2(p(x_i)))
+  ```
+  where `p(x_i)` is the probability of occurrence of each state. Shannon entropy quantifies the average information content of a signal.
 
 - **Renyi Entropy:**
-  \[
-  H_\alpha(X) = \frac{1}{1-\alpha} \log_2 \left( \sum_i p(x_i)^\alpha \right)
-  \]
-  where \(\alpha\) is a parameter controlling the order of entropy. Renyi entropy is a generalized form of entropy that emphasizes certain aspects of the probability distribution.
+  ```
+  H_alpha(X) = (1/(1-alpha)) * log2(sum(p(x_i)^alpha))
+  ```
+  where `alpha` is a parameter controlling the order of entropy. Renyi entropy is a generalized form of entropy that emphasizes certain aspects of the probability distribution.
 
 ## Implementation Details
 
