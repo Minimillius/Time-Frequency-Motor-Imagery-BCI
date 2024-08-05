@@ -1,6 +1,6 @@
 # Time-Frequency-MotorImagery-BCI
 
-This MATLAB project implements an EEG-based Brain-Computer Interface (BCI) system using time-frequency analysis with the pseudo Wigner-Ville distribution to classify motor imagery tasks through energy distribution features.
+This MATLAB project implements an EEG-based Brain-Computer Interface (BCI) system using time-frequency analysis with the pseudo Wigner-Ville distribution to classify motor imagery tasks through shannon entropy and energy distribution features.
 
 ## Table of Contents
 
