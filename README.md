@@ -1,9 +1,10 @@
-# Time-Frequency_MotorImagery_BCI
+Here’s an updated README for the **Time-Frequency-MotorImagery-BCI** repository, with detailed installation and usage instructions:
+
+---
+
+# Time-Frequency-MotorImagery-BCI
+
 This MATLAB project implements an EEG-based Brain-Computer Interface (BCI) system using time-frequency analysis with the pseudo Wigner-Ville distribution to classify motor imagery tasks through energy distribution features.
-
-# EEG Signal Processing and Classification
-
-This repository contains a MATLAB script for EEG signal processing and classification using Common Spatial Patterns (CSP) and entropy-based features. The code implements data loading, preprocessing, feature extraction, and classification using a k-fold cross-validation approach.
 
 ## Table of Contents
 
@@ -64,37 +65,62 @@ The code provides a framework for developing a BCI system that can accurately cl
 
 ## Installation
 
-1. Clone this repository:
+To set up the repository and run the code, follow these steps:
+
+1. **Clone this repository:**
+
+   Open your terminal or command prompt and run the following command to clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/eeg-signal-processing.git
-   cd eeg-signal-processing
+   git clone https://github.com/yourusername/Time-Frequency-MotorImagery-BCI.git
+   cd Time-Frequency-MotorImagery-BCI
    ```
 
-2. Ensure MATLAB is installed on your system.
+2. **Install MATLAB:**
 
-3. Add required toolboxes to your MATLAB path:
+   Ensure that MATLAB is installed on your system. You can download MATLAB from [MathWorks](https://www.mathworks.com/products/matlab.html).
+
+3. **Add Required Toolboxes:**
+
+   Make sure the required toolboxes are installed in MATLAB. Add them to your MATLAB path using the following commands:
 
    ```matlab
-   addpath('/path/to/your/tftb-toolbox');
-   addpath('/path/to/your/eeglab-toolbox');
+   addpath('/path/to/your/tftb-toolbox');   % Time-Frequency Toolbox
+   addpath('/path/to/your/eeglab-toolbox'); % EEGLAB Toolbox
    ```
+
+   Replace `'/path/to/your/tftb-toolbox'` and `'/path/to/your/eeglab-toolbox'` with the actual paths to your toolboxes.
 
 ## Usage
 
-1. **Prepare Data:** Ensure your EEG data in GDF format is accessible and modify the `filename` variable in the script to point to your data file.
+Follow these steps to use the code:
 
-2. **Run the Script:** Execute the MATLAB script `eeg_processing.m` to start processing and classification:
+1. **Prepare Data:**
 
+   Ensure your EEG data is in GDF format and accessible. Modify the `filename` variable in the script to point to your data file. You may need to update file paths for your specific data set.
+
+2. **Run the Script:**
+
+   Open MATLAB and run the main script to start processing and classification:
+
+   for energy distribution features:
    ```matlab
-   run('eeg_processing.m');
+   run('BCI_RPWVEnergy.m');
    ```
+   
+   for entropy features:
+   ```matlab
+   run('BCI_RPWVEntropy.m');
+   ```
+   This command will execute the processing and classification routine.
 
-3. **View Results:** Classification accuracy and plots for ERP and TFR will be displayed upon completion.
+3. **View Results:**
+
+   Upon completion, the script will display classification accuracy and generate plots for ERP and TFR. These results will help assess the model's performance and visualize EEG signal characteristics.
 
 ## File Structure
 
-- `eeg_processing.m`: Main MATLAB script for EEG signal processing and classification.
+- `BCI_RPWVEnergy.m` or `BCI_RPWVEntropy.m`: Main MATLAB script for EEG signal processing and classification.
 - `emptyEEG.mat`: Placeholder EEG structure for further use.
 - `tftb-0.2/mfiles`: Folder containing the Time-Frequency Toolbox scripts.
 - `eeglab2024.0`: Folder containing the EEGLAB toolbox.
@@ -106,14 +132,23 @@ The code provides a framework for developing a BCI system that can accurately cl
 
 ## Dependencies
 
+To successfully run the code, ensure the following dependencies are installed:
+
 - MATLAB (R2024 or later recommended)
 - [Biosig Toolbox](https://sourceforge.net/projects/biosig/)
 - [EEGLAB Toolbox](https://sccn.ucsd.edu/eeglab/)
 - [Time-Frequency Toolbox (TFTB)](https://tftb.nongnu.org/)
 
-Ensure these dependencies are installed and properly configured in your MATLAB environment.
+These toolboxes provide essential functions for signal processing, data loading, and analysis.
 
 ## Results
 
-The script calculates and displays the classification accuracy for each fold in the k-fold cross-validation process. It also visualizes the time-frequency representations and both entropy and energy distribution plots for both classes.
+The script calculates and displays the classification accuracy for each fold in the k-fold cross-validation process. It also visualizes the time-frequency representations and both entropy and energy distribution plots for both classes, enabling a comprehensive analysis of EEG signals.
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+This README provides a comprehensive overview of the project, installation steps, and usage instructions to help users get started quickly. If you have any further questions or need additional details, feel free to ask!
