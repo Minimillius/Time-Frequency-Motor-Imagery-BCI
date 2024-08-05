@@ -1,0 +1,135 @@
+
+# Installation Guide for Time-Frequency-MotorImagery-BCI
+
+This installation guide provides detailed steps to set up the **Time-Frequency-MotorImagery-BCI** project on your local machine. The project involves processing and classifying EEG signals for motor imagery tasks using MATLAB and several toolboxes.
+
+## Prerequisites
+
+Before proceeding with the installation, ensure you have the following:
+
+- A computer running Windows, macOS, or Linux.
+- An internet connection to download necessary software and repositories.
+- Administrative privileges to install MATLAB and toolboxes.
+
+## Step 1: Install MATLAB
+
+1. **Download MATLAB:**
+
+   - Visit the [MathWorks website](https://www.mathworks.com/products/matlab.html) to download the MATLAB installer.
+   - Follow the on-screen instructions to create a MathWorks account and download the latest version of MATLAB.
+
+2. **Install MATLAB:**
+
+   - Run the MATLAB installer and follow the installation instructions.
+   - Choose a typical installation to include all necessary components.
+
+3. **Activate MATLAB:**
+
+   - After installation, launch MATLAB.
+   - Follow the prompts to activate MATLAB using your MathWorks account credentials.
+
+## Step 2: Install Required Toolboxes
+
+This project requires several MATLAB toolboxes for EEG signal processing. You can install these toolboxes via MATLAB's Add-On Explorer:
+
+1. **Launch MATLAB:**
+
+   - Open MATLAB by clicking the application icon or using the terminal (macOS/Linux) or command prompt (Windows).
+
+2. **Open Add-On Explorer:**
+
+   - In the MATLAB Home tab, click on the "Add-Ons" button and select "Get Add-Ons" to open the Add-On Explorer.
+
+3. **Search and Install Toolboxes:**
+
+   - Search for the following toolboxes and click "Add" or "Install" to add them to your MATLAB environment:
+
+     - **Biosig Toolbox:** Provides functions for reading, writing, and processing EEG and other biomedical signals.
+       - [Biosig Toolbox](https://sourceforge.net/projects/biosig/)
+
+     - **EEGLAB Toolbox:** A MATLAB toolbox for processing EEG data, providing functionalities for data visualization and analysis.
+       - [EEGLAB Toolbox](https://sccn.ucsd.edu/eeglab/)
+
+     - **Time-Frequency Toolbox (TFTB):** Offers tools for time-frequency analysis of signals, essential for this project's feature extraction.
+       - [Time-Frequency Toolbox (TFTB)](https://tftb.nongnu.org/)
+
+4. **Verify Installation:**
+
+   - After installing the toolboxes, ensure they are added to the MATLAB path. You can verify this by checking the installed add-ons or using the `ver` command in the MATLAB command window.
+
+## Step 3: Clone the Repository
+
+1. **Open Terminal or Command Prompt:**
+
+   - Open a terminal (macOS/Linux) or command prompt (Windows) on your computer.
+
+2. **Clone the GitHub Repository:**
+
+   - Use the `git` command to clone the repository to your local machine. Replace `yourusername` with your GitHub username or the correct path if using a direct URL:
+
+   ```bash
+   git clone https://github.com/yourusername/Time-Frequency-MotorImagery-BCI.git
+   ```
+
+3. **Navigate to the Project Directory:**
+
+   - Change to the project directory:
+
+   ```bash
+   cd Time-Frequency-MotorImagery-BCI
+   ```
+
+## Step 4: Configure MATLAB Path
+
+To ensure that MATLAB can access the necessary scripts and functions, you need to add the relevant directories to the MATLAB path.
+
+1. **Add Project Paths:**
+
+   - In MATLAB, use the `addpath` function to add the directories containing the scripts and toolboxes. Update the paths to match your local file system:
+
+   ```matlab
+   addpath('/path/to/your/Time-Frequency-MotorImagery-BCI');
+   addpath('/path/to/your/tftb-toolbox');
+   addpath('/path/to/your/eeglab-toolbox');
+   ```
+
+2. **Save the MATLAB Path:**
+
+   - After adding the paths, save the changes by selecting "Save Path" from the MATLAB Home tab under the "Environment" section.
+
+## Step 5: Prepare Your Data
+
+1. **EEG Data Format:**
+
+   - Ensure your EEG data is in GDF format. The script is designed to work with GDF files containing EEG recordings from motor imagery tasks.
+
+2. **Modify Script File Paths:**
+
+   - Open the main script file (e.g., `eeg_processing.m`) and update the `filename` variable to point to your EEG data file. Ensure the file paths reflect the location of your data on your local machine.
+
+## Step 6: Run the Project
+
+1. **Open MATLAB:**
+
+   - Ensure MATLAB is open with all paths configured correctly.
+
+2. **Run the Main Script:**
+
+   - Execute the main script file to start the EEG signal processing and classification:
+
+   ```matlab
+   run('eeg_processing.m');
+   ```
+
+3. **Check Results:**
+
+   - Upon completion, the script will display classification accuracy and generate plots for ERP and TFR. These results provide insights into the model's performance and the characteristics of the EEG signals.
+
+## Troubleshooting
+
+- **Path Issues:** If you encounter issues related to file paths or missing functions, ensure that all required paths are correctly added to the MATLAB environment.
+- **Toolbox Functions:** Verify that all toolboxes are correctly installed and accessible in MATLAB. Use the MATLAB Add-On Explorer to manage installed toolboxes.
+
+## Conclusion
+
+By following this installation guide, you should be able to set up the **Time-Frequency-MotorImagery-BCI** project on your local machine and successfully run the scripts for EEG signal processing and classification. This guide ensures that you have all the necessary tools and configurations to explore the capabilities of this Brain-Computer Interface system.
