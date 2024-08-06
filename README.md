@@ -68,7 +68,7 @@ To set up the repository and run the code, follow these steps:
    Open your terminal or command prompt and run the following command to clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/Time-Frequency-MotorImagery-BCI.git
+   git clone https://github.com/Minimillius/Time-Frequency-Motor-Imagery-BCI.git
    cd Time-Frequency-MotorImagery-BCI
    ```
 
